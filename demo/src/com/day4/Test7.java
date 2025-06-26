@@ -6,6 +6,11 @@ public class Test7 {
 
 	public static void main(String[] args) {
 		
+		//15800원짜리 물건을 일정 수 이상 구매시 할인
+		//10개 이상 > 10%
+		//20개 이상 > 15%
+		//30개 이상 > 20%
+		
 		int item = 15800;
 		int cnt;
 		double money;

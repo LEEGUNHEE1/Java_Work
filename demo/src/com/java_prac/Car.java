@@ -1,4 +1,4 @@
-package com.day4;
+package com.java_prac;
 
 public class Car {
 	

@@ -16,20 +16,33 @@ public class Test10 {
 		num1 = sc.nextInt();
 		num2 = sc.nextInt();
 		
-		if (num1 > num2) {
-			a = num1;
-			num1 = num2;
-			num2 = a;
-		}
+//		방법1
+//		if (num1 > num2) {
+//			a = num1;
+//			num1 = num2;
+//			num2 = a;
+//		}
+//		
+//		
+//		for (int i = num1; i <= num2; i++) {
+//			sum += i;
+//			
+//		}
+//		System.out.printf("%d에서 %d까지 의 합 : %d",num1,num2,sum );
 		
+//		방법2
+		if (num1 > num2) {
+			
+			num1 = num1^num2;
+			num2 = num1^num2;
+			num1 = num1^num2;
+		}
 		
 		for (int i = num1; i <= num2; i++) {
-			sum += i;
-			
-		}
-		System.out.printf("%d에서 %d까지 의 합 : %d",num1,num2,sum );
+		sum += i;
 		
-		
+	}
+	System.out.printf("%d에서 %d까지 의 합 : %d",num1,num2,sum );
 		
 		
 

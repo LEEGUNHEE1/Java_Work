@@ -43,11 +43,13 @@ public class Test3 {
 			for (int j = i + 1; j < inwon; j++) {
 				// 석차 구하기
 				// scr를 비교해서 작은 값의 rank에 +1
+				System.out.println(i + ":" + j);
 				if (scr[i] < scr[j]) {
 					rk[i]++;
-				}else if(scr[i] > scr[j]){
+				} else if (scr[i] > scr[j]) {
 					rk[j]++;
-				}	
+				}
+				
 			}
 		}
 		for (int i = 0; i < inwon; i++) {

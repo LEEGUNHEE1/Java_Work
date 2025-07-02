@@ -1,6 +1,6 @@
 package com.day7;
 
-import java.util.Scanner;import javax.swing.text.AbstractDocument.LeafElement;
+import java.util.Scanner;
 
 public class Test1 {
 

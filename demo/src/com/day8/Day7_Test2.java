@@ -17,6 +17,7 @@ class Day7_T2 {
 			num[n] = rd.nextInt(range + 1);
 
 			for (int i = 0; i < n; i++) {
+				//System.out.println(i + ":" + n);
 				if (num[i] == num[n]) {
 					n--;
 				}

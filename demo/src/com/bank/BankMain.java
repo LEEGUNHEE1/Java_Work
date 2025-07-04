@@ -1,12 +1,13 @@
 package com.bank;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class BankMain {
 
 	static boolean run = true;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		Scanner sc = new Scanner(System.in);
 		int num;
@@ -21,17 +22,21 @@ public class BankMain {
 		while (run) {
 			s.showScreen1();
 			System.out.print("선택> ");
-			num = sc.nextInt();
-
+			num = (int)System.in.read() - 48;
+			System.out.println(num);
 			switch (num) {
 			case 1:
 				bk.showAccount();
 				System.out.print("\n선택> ");
-				rc = bk.passCheck(sc.nextInt());
-				bk.select();
+				int a = sc.nextInt();
+				if (a > 0 && a <= bk.rec.length) {
+					rc = bk.passCheck(a);
+					bk.select();
+				}
+
 				break;
 			case 2:
-				exit();
+				BankMain.exit();
 				break;
 			default:
 				break;

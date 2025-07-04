@@ -27,15 +27,14 @@ public class Bank {
 
 	public void input() {
 		for (int i = 0; i < inwon; i++) {
-			
+
 			rec[i] = new Record();
-			
+
 			System.out.print("이름 : ");
 			rec[i].setName(sc.next());
 
-			System.out.print("주민번호 [xxxxxx-xxxxxxx] : ");
-			jumin = sc.next();
-			jm.juminCheck(jumin);
+			jumin = jm.juminCheck();
+			System.out.println("맞는 주민번호");
 			rec[i].setJumin(jumin);
 
 			account = ac.accountCreate();
@@ -56,44 +55,50 @@ public class Bank {
 	}
 
 	public Record passCheck(int accountNum) {
-		String passCheck,pass;
-		this.accountNum = accountNum-1;
+		String passCheck, pass;
+		this.accountNum = accountNum - 1;
 		do {
 			System.out.print("비밀 번호 확인 : ");
 			passCheck = sc.next();
 			pass = rec[this.accountNum].getPassword();
-			
+
 		} while (!pass.equals(passCheck));
-		
+
 		System.out.println("비밀번호 맞음");
-		
+
 		return rec[this.accountNum];
-		
+
 	}
+
 	public void select() {
-		
+
 		s.showScreen2(rec[this.accountNum]);
 		int num = sc.nextInt();
 		if (num == 1) {
 			insert();
-		}else if (num == 2) {
+		} else if (num == 2) {
 			minus();
-		}else if (num ==3) {
-			BankMain bm = new BankMain();
-			bm.exit();
+		} else if (num == 3) {
 			return;
+		} else if (num == 4) {
+			BankMain.exit();
+			return;
+			}
+		else {
+			select();
 		}
 	}
 
 	public void insert() {
 		int money = rec[accountNum].getMoney();
-		
+
 		System.out.print("입금할 돈 : ");
 		rec[accountNum].setMoney(money + sc.nextInt());
-		System.out.printf("잔액 : %d\n",rec[accountNum].getMoney());
+		System.out.printf("잔액 : %d\n", rec[accountNum].getMoney());
 		select();
 
 	}
+
 	public void minus() {
 		System.out.print("출금할 돈 : ");
 		int minusMoney = sc.nextInt();
@@ -103,9 +108,8 @@ public class Bank {
 			select();
 		}
 		rec[accountNum].setMoney(money - minusMoney);
-		System.out.printf("잔액 : %d\n",rec[accountNum].getMoney());
+		System.out.printf("잔액 : %d\n", rec[accountNum].getMoney());
 		select();
 	}
-
 
 }

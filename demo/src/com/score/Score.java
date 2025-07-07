@@ -62,6 +62,32 @@ public class Score {
 		}
 
 	}
+	
+	private String panJung(int score) {
+		String pan = "";
+		
+		switch(score) {
+		case 100:
+		case 90 :
+			pan = "수";
+			break;
+			
+		case 80:
+			pan = "우";
+			break;
+		case 70:
+			pan = "미";
+			break;
+		case 60:
+			pan = "양";
+			break;
+		default :
+			pan = "가";
+			break;
+		}
+		return pan;
+		
+	}
 
 	public void print() {
 		
@@ -72,7 +98,7 @@ public class Score {
 			System.out.printf("%8s",rec[i].name);
 			
 			for (int j = 0; j < 3; j++) {
-				System.out.printf("%8s%3d",title[j],rec[i].score[j]);
+				System.out.printf("%8s%3d(%s)",title[j],rec[i].score[j],panJung(rec[i].score[j]));
 			}
 			
 			System.out.printf("\ttot%4d",rec[i].tot);

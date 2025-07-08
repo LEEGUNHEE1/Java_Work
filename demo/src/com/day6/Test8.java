@@ -63,12 +63,6 @@ public class Test8 {
 		
 		System.out.printf("%d일 후 : %d년 %d월 %d일 %s요일",afterDay,y,m,d,yoil[week-1]);
 		
-		
-		
-		
-		
-		
-
 	}
 
 }

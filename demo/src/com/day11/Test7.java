@@ -1,5 +1,5 @@
 package com.day11;
-
+//모든 클래스는 Object를 상속 받는다
 class SuperTestA {
 
 	private int a = 10;

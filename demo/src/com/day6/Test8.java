@@ -21,24 +21,26 @@ public class Test8 {
 		Calendar cal = Calendar.getInstance();
 
 		int y, m,d, week,afterDay;
-
+		
 		do {
 			System.out.print("년도 : ");
 			y = sc.nextInt();
 
 		} while (y < 1);
-
+		
+		
 		do {
 			System.out.print("월 : ");
 			m = sc.nextInt();
 
 		} while (m < 1 || m > 12);
 		
+		cal.set(y,m-1,1);
 		do {
 			System.out.print("일 : ");
 			d = sc.nextInt();
-
-		} while (d < 1 || m > 31);
+			
+		} while (d < 1 || d > cal.getActualMaximum(Calendar.DATE));
 		
 		do {
 			System.out.print("몇일후 : ");
@@ -54,7 +56,7 @@ public class Test8 {
 		
 		System.out.printf("만 난 날 : %d년 %d월 %d일 %s요일\n",y,m,d,yoil[week-1]);
 		
-		cal.add(Calendar.DAY_OF_YEAR,afterDay);
+		cal.add(Calendar.DATE,afterDay);
 		
 		y = cal.get(Calendar.YEAR);
 		m = cal.get(Calendar.MONTH)+1;

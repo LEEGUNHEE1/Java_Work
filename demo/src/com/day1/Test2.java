@@ -8,8 +8,8 @@ public class Test2 {
 		//예:customInfoNote
 		//int: 8개 자료형중 하나(정수만)
 		//10,-10,0(약 플마 21억)
-//		int num1;
-//		int num2;
+		//int num1;
+		//int num2;
 		//int num1 = 10; 변수 선언과 동시에 초기화
 		
 		int num1,num2;

@@ -11,6 +11,7 @@ interface FruitA {
 }
 
 interface ItemFruit extends FruitA {
+	
 
 	String getItems();
 }

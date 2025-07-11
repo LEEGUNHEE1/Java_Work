@@ -156,8 +156,6 @@ public class Test6 {
 		System.out.println("벡터의 초기 용량 : " + v1.capacity());
 		System.out.println("데이터 갯수 : " + v1.size());
 		
-		
-		
 	}
 
 }

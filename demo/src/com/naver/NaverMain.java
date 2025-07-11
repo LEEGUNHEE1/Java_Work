@@ -1,53 +1,54 @@
-package com.score2;
+package com.naver;
 
 import java.util.Scanner;
 
-public class ScoreMain {
+public class NaverMain {
 
 	public static void main(String[] args) {
-
+		
 		Scanner sc = new Scanner(System.in);
-
-		Score ob = new ScoreImpl();
-
+		Naver ob = new NaverImpl();
+		
 		int ch;
-
 		while (true) {
+			
 			do {
-				System.out.print("1.입력 2.출력 3.학번삭제 4.학번검색 5.이름검색 6.총점정렬 7.학번정렬 8.종료 : ");
+				System.out.println("****네이버****");
+				System.out.print("1.회원가입 2.회원리스트 3.회원삭제 4. 회원검색 5.가입정보 확인"+
+				"6.개인정보 수정 7.종료 : ");
 				ch = sc.nextInt();
+				
 			} while (ch < 1);
-
+			
 			switch (ch) {
 			case 1:
 				ob.input();
 				break;
 			case 2:
-				ob.print();
+				ob.showList();
 				break;
 			case 3:
-				ob.deleteHak();
+				ob.delete();
 				break;
 			case 4:
-				ob.searchHak();
+				ob.searchID();
 				break;
 			case 5:
-				ob.searchName();
+				ob.privateRecord();
 				break;
 			case 6:
-				ob.descSortTot();
-				break;
-			case 7:
-				ob.ascSortHak();
+				ob.update();
 				break;
 			default:
-				System.out.println("종료합니다");
 				System.exit(0);
 				break;
 			}
-
+			
+			
+			
+			
 		}
-
+	
 	}
 
 }

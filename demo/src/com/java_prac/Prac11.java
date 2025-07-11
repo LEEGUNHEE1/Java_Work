@@ -1,6 +1,8 @@
 package com.java_prac;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Stack;
 
 public class Prac11 {
 
@@ -8,49 +10,32 @@ public class Prac11 {
 
 		Prac11 p11 = new Prac11();
 
-		System.out.println(p11.solution("baababa"));
+		System.out.println(p11.solution("abcd"));
 
 	}
 
-	public int solution(String s) {
-		int answer = -1;
-
-		ArrayList<String> al = new ArrayList<String>();
-
-		for (int i = 0; i < s.length(); i++) {
-			al.add(Character.toString(s.charAt(i)));
-		}
-
-		int defaultSize = al.size();
-
-		while (al.size() > 1) {
-			if (al.size() == 2) {
-				if (al.get(0).equals(al.get(1))) {
-
-					al.remove(1);
-					al.remove(0);
-					
-					return answer = 1;
+	public int solution(String s)
+    {
+        
+        Stack<Character> st = new Stack<Character>();
+        
+        for(char c : s.toCharArray()) {
+        	if (st.empty()) {
+				st.push(c);
+			}else {
+				if (st.peek() == c) {
+					st.pop();
 				}else {
-					return answer;
+					st.push(c);
 				}
 			}
-
-			for (int i = 0; i < al.size() - 1; i++) {
-
-				if (al.get(i).equals(al.get(i + 1))) {
-					
-					al.remove(i + 1);
-					al.remove(i);
-					
-					break;
-				}
-			}
-			if (defaultSize == al.size()) {
-				return answer;
-			}
+        }
+        if (st.empty()) {
+			return 1;
 		}
-		return answer;
-	}
+        
+
+        return 0;
+    }
 
 }

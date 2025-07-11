@@ -11,9 +11,9 @@ public class Test5 {
 	
 	public static void main(String[] args) {
 
-		Vector v = new Vector();
+		Vector v = new Vector();//Object
 		
-		v.add("서울");
+		v.add("서울");//upcast
 		v.add(30);
 		v.add('a');
 		
@@ -21,7 +21,7 @@ public class Test5 {
 		Integer i;
 		Character c;
 		
-		str = (String)v.get(0);
+		str = (String)v.get(0);//downcast
 		System.out.println(str);
 		
 		i = (Integer)v.get(1);

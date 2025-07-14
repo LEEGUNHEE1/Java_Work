@@ -15,7 +15,7 @@ public class NaverMain {
 			do {
 				System.out.println("****네이버****");
 				System.out.print("1.회원가입 2.회원리스트 3.회원삭제 4. 회원검색 5.가입정보 확인"+
-				"6.개인정보 수정 7.종료 : ");
+				" 6.개인정보 수정 7.종료 : ");
 				ch = sc.nextInt();
 				
 			} while (ch < 1);

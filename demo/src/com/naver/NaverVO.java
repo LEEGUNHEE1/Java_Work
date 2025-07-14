@@ -58,7 +58,7 @@ public class NaverVO {
 		String str;
 		
 		str = String.format("아이디 : %s\n비밀번호 : %s\n이메일주소 : %s\n이름 : %s\n생년월일 : %s\n성별 : %s\n전화번호 : %s",
-				name,id,password,email,name,birth,gender,tell);
+				id,password,email,name,birth,gender,tell);
 		
 		return str;
 	}

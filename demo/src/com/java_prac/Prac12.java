@@ -1,9 +1,7 @@
 package com.java_prac;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class Prac12 {
 
@@ -16,14 +14,15 @@ public class Prac12 {
 		System.out.println(r);
 	}
 	public int solution(int[] A, int[] B)
-    {
+    {	
         int answer = 0;
 
-        List<Integer> listA = Arrays.stream(A).boxed().collect(Collectors.toList());
-        List<Integer> listB = Arrays.stream(B).boxed().collect(Collectors.toList());
+        Arrays.sort(A);
+        Arrays.sort(B);
         
-        listA.sort();
-        
+        for (int i = 0; i < A.length; i++) {
+			answer += A[A.length-1-i]*B[i]; 
+		}
 
         return answer;
     }

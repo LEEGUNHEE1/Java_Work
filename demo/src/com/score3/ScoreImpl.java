@@ -12,7 +12,7 @@ public class ScoreImpl implements Score{
 	//private Map<String, ScoreVO> hMap = new HashMap<String, ScoreVO>();
 	private Map<String, ScoreVO> hMap = new TreeMap<String, ScoreVO>();
 	
-	String hak;
+	String hak;//key
 	
 	@Override
 	public void input() {

@@ -1,5 +1,12 @@
 package com.score2;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-public class ScoreImpl implements Score {
+public class ScoreImpl implements Score{
 
 	private List<ScoreVO> lists = new ArrayList<ScoreVO>();
 
@@ -126,6 +133,41 @@ public class ScoreImpl implements Score {
 				break;
 			}
 		}
+
+	}
+
+	@Override
+	public void memorySave() throws Exception {
+
+		FileOutputStream fos = new FileOutputStream("c:\\doc\\Score.txt");
+
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+		oos.writeObject(lists);
+
+		oos.close();
+		fos.close();
+
+	}
+
+	@Override
+	public void memoryImport() throws Exception {
+
+		File f = new File("c:\\doc\\Score.txt");
+
+		if (!f.exists()) {
+			return;
+		}
+
+		FileInputStream fis = new FileInputStream("c:\\doc\\Score.txt");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+
+		List<ScoreVO> l = (ArrayList<ScoreVO>) ois.readObject();
+		
+		lists = l;
+				
+		ois.close();
+		fis.close();
 
 	}
 

@@ -1,6 +1,8 @@
 package com.score2;
 
-public class ScoreVO {// Value Object
+import java.io.Serializable;
+
+public class ScoreVO implements Serializable{// Value Object
 
 	private String hak;
 	private String name;

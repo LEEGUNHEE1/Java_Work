@@ -1,5 +1,7 @@
 package com.score2;
 
+import java.io.FileNotFoundException;
+
 public interface Score {
 	
 	public void input();//입력
@@ -15,6 +17,10 @@ public interface Score {
 	public void descSortTot();//총점내림차순정렬
 
 	public void ascSortHak();//학번오름차순정렬
+	
+	public void memorySave() throws Exception;
+	
+	public void memoryImport() throws Exception;
 
 	
 	

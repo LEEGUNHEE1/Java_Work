@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class ScoreMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		Scanner sc = new Scanner(System.in);
 
 		Score ob = new ScoreImpl();
+		
+		ob.memoryImport();
 
 		int ch;
 
@@ -42,6 +44,7 @@ public class ScoreMain {
 				break;
 			default:
 				System.out.println("종료합니다");
+				ob.memorySave();
 				System.exit(0);
 				break;
 			}

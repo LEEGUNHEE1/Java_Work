@@ -10,8 +10,6 @@ public class ScoreMain {
 
 		Score ob = new ScoreImpl();
 		
-		ob.memoryImport();
-
 		int ch;
 
 		while (true) {

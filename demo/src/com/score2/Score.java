@@ -20,7 +20,6 @@ public interface Score {
 	
 	public void memorySave() throws Exception;
 	
-	public void memoryImport() throws Exception;
 
 	
 	

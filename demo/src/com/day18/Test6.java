@@ -26,7 +26,7 @@ public class Test6 extends Frame{
 		add(ta,BorderLayout.CENTER);
 		add(btn,BorderLayout.SOUTH);
 		addWindowListener(new MyWindowAdapter());
-		setTitle("자바");
+		setTitle("자바 윈도우");
 		setSize(200, 300);
 		
 		

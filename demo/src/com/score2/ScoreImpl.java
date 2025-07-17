@@ -1,6 +1,7 @@
 package com.score2;
 
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,11 +15,39 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-public class ScoreImpl implements Score{
+public class ScoreImpl implements Score {
 
-	private List<ScoreVO> lists = new ArrayList<ScoreVO>();
+	private List<ScoreVO> lists;
 
 	Scanner sc = new Scanner(System.in);
+
+	File f = new File("c:\\doc\\Score.txt");
+
+	public ScoreImpl() {
+
+		if (!f.getParentFile().exists()) {
+			f.getParentFile().mkdirs();
+		}
+
+		if (!f.exists()) {
+			return;
+		}
+
+		try {
+
+			FileInputStream fis = new FileInputStream(f);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+
+			lists = (ArrayList<ScoreVO>) ois.readObject();
+
+			ois.close();
+			fis.close();
+
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+
+	}
 
 	@Override
 	public void input() {
@@ -39,6 +68,10 @@ public class ScoreImpl implements Score{
 
 		System.out.print("수학점수 : ");
 		vo.setMat(sc.nextInt());
+
+		if (lists == null) {
+			lists = new ArrayList<ScoreVO>();
+		}
 
 		lists.add(vo);
 
@@ -139,41 +172,27 @@ public class ScoreImpl implements Score{
 	@Override
 	public void memorySave() throws Exception {
 
-		FileOutputStream fos = new FileOutputStream("c:\\doc\\Score.txt");
+		if (lists != null) {
 
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
+			FileOutputStream fos = new FileOutputStream(f);
 
-		oos.writeObject(lists);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-		oos.close();
-		fos.close();
+			oos.writeObject(lists);
 
-	}
+			oos.close();
+			fos.close();
 
-	@Override
-	public void memoryImport() throws Exception {
-
-		File f = new File("c:\\doc\\Score.txt");
-
-		if (!f.exists()) {
-			return;
 		}
-
-		FileInputStream fis = new FileInputStream("c:\\doc\\Score.txt");
-		ObjectInputStream ois = new ObjectInputStream(fis);
-
-		List<ScoreVO> l = (ArrayList<ScoreVO>) ois.readObject();
-		
-		lists = l;
-				
-		ois.close();
-		fis.close();
 
 	}
 
 	@Override
 	public void print() {
 
+		if (lists == null) {
+			return;
+		}
 		Iterator<ScoreVO> it = lists.iterator();
 		while (it.hasNext()) {
 			ScoreVO vo = it.next();

@@ -9,6 +9,7 @@ public class Test2 {
 
 	public static void main(String[] args) throws Exception{
 		
+		//역직렬화
 		FileInputStream fis = new FileInputStream("c:\\doc\\outer.txt");
 
 		ObjectInputStream ois = new ObjectInputStream(fis);

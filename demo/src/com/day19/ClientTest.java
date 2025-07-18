@@ -1,6 +1,6 @@
 package com.day19;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout;  
 import java.awt.Frame;
 import java.awt.TextArea;
 import java.awt.TextField;
@@ -27,7 +27,8 @@ public class ClientTest extends Frame implements ActionListener, Runnable {
 
 	private Socket sc;
 	private int port = 7777;
-	private String host = "192.168.0.2";//192.168.0.18,127.0.0.1, localhost  셋다 자신을 가르키는 대명사
+	private String host = "192.168.0.34";//192.168.0.18, 127.0.0.1, localhost  
+	//셋다 자신을 가르키는 대명사, loopback주소
 
 	public ClientTest() {
 
@@ -94,9 +95,8 @@ public class ClientTest extends Frame implements ActionListener, Runnable {
 			while ((str = br.readLine()) != null) {
 
 				ta.append("\r\n" + str);
-
+				
 			}
-
 		} catch (Exception e) {
 			ta.append("\r\n서버 연결 종료");
 			// 연결 끊키면 소켓들 청소
